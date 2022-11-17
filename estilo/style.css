@@ -1,0 +1,204 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@font-face {
+    font-family: 'Android';
+    src: url('/idroid.otf') format('opentype');
+    font-weight: normal;
+}
+
+:root{ /*declarando variáveis*/
+    --cor0: #c5ebd6;
+    --cor1: #83e1ad;
+    --cor2: #3ddc84;
+    --cor3: #2fa866;
+    --cor4: #1a5c37;
+    --cor5: #063d1e;
+
+    --fonte-padrao: Arial, Verdana, helvetica, sans-serif;
+    --fonte-destaque: 'Bebas Neue', cursive;
+    --fonte-android: 'Android', cursive;
+}
+
+*{ /*seleciona todos os elementos, essa configuração abaixo faz com que todos os elementos fiquem sem margin e sem padding*/
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color: var(--cor0);
+    font-family: var(--fonte-padrao);
+}
+
+a.externo::after{ /*adiciona um desenho de correntinha após um link, comando after coloca um conteudo sempre após*/
+    content: '\00A0\1F517';
+}
+
+header{
+    background-image: linear-gradient(to bottom, var(--cor3), var(--cor5));
+    min-height: 150px; /*altura minima*/
+    text-align: center; /*centraliza o texto*/
+    padding-top: 40px; /*comando faz texto do h1 descolar do topo*/
+}
+
+header > h1{
+    color: white;
+    font-family: var(--fonte-destaque);
+    font-size: 3em;
+    margin-bottom: 20px; /*faz o texto do h1 descolar do p*/
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.267);
+}
+
+header > p{
+    font-family: var(--fonte-padrao);
+    font-size: 1.2em; /*aumenta a fonte*/
+    max-width: 600px; /*faz o paragrafo quebrar*/
+    margin: auto; /*precisou virar um bloco para o comando anterior funcionar corretamente*/
+    color: white;
+    padding-right: 10px;
+    padding-left: 10px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.315);
+}
+
+nav{
+    background-color: var(--cor5);
+    padding: 10px;
+    box-shadow: 2px 7px 7px rgba(0, 0, 0, 0.315);
+    
+}
+
+nav > a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition-duration: 0.5s; 
+}
+
+nav > a:hover{
+    background-color: var(--cor3);
+    color: var(--cor5);
+}
+
+/*estes comandos no main faz o conteudo ficar responsivo*/
+main{ 
+    min-width: 300px;
+    max-width: 1000px;
+    margin: auto; 
+    padding: 20px;
+    margin-bottom: 30px; /*afasta o main do rodapé*/
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.562); /*cria sombra*/
+    /*os dois comandos abaixo criam arredondamento nas bordas somente no final do main*/
+    border-bottom-left-radius: 10px; 
+    border-bottom-right-radius: 10px;
+}
+
+main h1{
+    color: var(--cor5);
+    font-family: var(--fonte-android);
+    font-weight: normal; /*tira um pouco o negrito*/
+    font-size: 1.8em;
+}
+
+main h2{
+    font-family: var(--fonte-android);
+    color: var(--cor4);
+    font-size: 1.3em;
+    background-image: linear-gradient(to right, var(--cor1), transparent); /*faz um degradê de fundo para a direita ficando transparente*/
+    text-indent: 8px; /*cria um espaço de paragrafo antes da primeira palavra*/
+    font-weight: normal; /*tira um pouco o negrito*/
+}
+
+main p{
+    margin: 15px 0px; /*cria margem em cima e embaixo de todos os p*/
+    text-align: justify; /*faz o texto ter espaçamento igual*/
+    text-indent: 30px; /*cria o espaço do parágrafo antes da primeira palavra*/
+    line-height: 2em; /*faz o paragrafo ter mais altura entre as linhas, cria um espaço maior*/
+    font-size: 1em; /*aumenta o tamanho da fonte*/
+}
+
+main strong{
+    color: var(--cor4);
+    font-weight: bold;
+}
+
+main a{
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--cor5);
+    background-color: var(--cor1);
+    padding: 2px 6px;
+}
+
+main a:hover{ /*quando passa o mouse no link*/
+    text-decoration: underline;
+    color: var(--cor4);
+}
+
+main img{
+    width: 100%; /*faz as imagens ficarem responsivas*/
+}
+
+/*os comandos dentro de div.video e div.video > iframe faz o video se posicionar corretamente, mas varia de video pra video. */
+div.video{
+    background-color: var(--cor5);
+    margin: 0px -20px 30px -20px;
+    padding: 20px;
+    padding-bottom: 58%;
+    position: relative;
+}
+
+div.video > iframe{
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+/*os comandos abaixo fazem a imagem ficar menor, se adaptar no centro, foi necessario colocar display: blok porque uma imagem não é um bloco */
+main img.pequena{
+    max-width: 350px; /*tamanho máximo*/
+    display: block;
+    margin: auto;
+}
+
+aside{
+    background-color: var(--cor1);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.541);
+}
+
+aside > h3{
+    background-color: var(--cor4);
+    color: white;
+    padding: 5px;
+    margin: -10px -10px 0px -10px; /*comando fez a margem do h3 colar no bloco, margem negativa em cima, na direita e na esquerda, embaixo não tem*/
+    border-radius: 10px 10px 0px 0px; /*faz bordas somente em cima*/
+}
+    
+aside > ul{
+    list-style-type: '\2714\00A0\00A0'; /*faz as bolinhas mudarem de formato, vira um check V, o comando 00A0 faz dar espaços*/
+    list-style-position: inside; /*faz as bolinhas ficarem dentro do bloco verde*/
+    columns: 2; /*faz as bolinhas se separerem,  virar duas colunas */
+}
+
+footer{
+    background-color: var(--cor5);
+    color: white;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 5px;
+}
+
+footer a{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+footer a:hover{
+    text-decoration: underline;
+    color: var(--cor1);
+}
